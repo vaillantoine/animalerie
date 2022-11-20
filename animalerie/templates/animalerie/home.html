@@ -1,15 +1,6 @@
-{% load static %}
+{% extends 'animalerie/base.html' %}
 
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Animalerie Antoine VAILLANT</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/animalerie.css' %}">
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-</head>
-<body>
+{% block content %}
     <div class="page-header">
         <h1><a href="/">Bienvenue à l'animalerie</a></h1>
     </div>
@@ -26,5 +17,4 @@
             </div>
         </p></div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
