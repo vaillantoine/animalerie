@@ -1,5 +1,5 @@
 {% extends 'animalerie/base.html' %}
-
+{% load static %}
 {% block content %}
     <div class="page-header">
         <h1><a href="/">Bienvenue à l'animalerie</a></h1>
@@ -7,7 +7,7 @@
     {% for animal in animaux %}
         <div class="row"><p>
             <div class="col-md-6">
-                {{ animal.id_animal }}
+                <a href="{% url 'animal_detail' id_animal=animal.id_animal %}">{{ animal.id_animal }}</a>
             </div>
             <div class="col-md-3">
                 {{ animal.etat }}

@@ -1,0 +1,14 @@
+{% extends 'animalerie/base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-header">
+    <h1>
+        <a href="/">{{ animal.id_animal }}</a>
+    </h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        <b>Changer : </b>{{ form.as_ul }}
+        <button type="submit" class="btn btn-outline-light">OK</button>
+        <a href="{% url 'animal_list' %}">Back</a>
+    </form>
+</div>
+{% endblock %}

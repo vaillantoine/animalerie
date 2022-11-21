@@ -3,10 +3,10 @@ from .models import Animal
 from .forms import MoveForm
 
 
-def home(request):
+def animal_list(request):
     animaux = Animal.objects.all()
 
-    return render(request, 'animalerie/home.html', {'animaux': animaux})
+    return render(request, 'animalerie/animal_list.html', {'animaux': animaux})
 
 
 def animal_detail(request, id_animal):
@@ -14,5 +14,5 @@ def animal_detail(request, id_animal):
     lieu = animal.lieu
     form = MoveForm()
     return render(request,
-                  'animaleire/animalerie_detail.html',
+                  'animalerie/animal_detail.html',
                   {'animal': animal, 'lieu': lieu, 'form': form})
