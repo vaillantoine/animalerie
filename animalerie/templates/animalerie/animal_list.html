@@ -8,11 +8,7 @@
     {% for animal in animaux %}
         <div class="col-md-4 col-sm-6">
             <div class="case">
-                <p>
-                    {% with 'img/'|add:animal.id_animal|add:'.png' as pathimage %}
-                    <img src="{% static pathimage %}">
-                    {% endwith %}
-                </p>
+                <p><img src="{% static animal.photo %}"></p>
                 <p><a href="{% url 'animal_detail' id_animal=animal.id_animal %}">{{ animal.id_animal }}</a></p>
                 <p>{{ animal.etat }}</p>
                 <p>{{ animal.lieu }}</p>
