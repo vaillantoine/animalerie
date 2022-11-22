@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Animal, Equipement
 from .forms import MoveForm
+from django.contrib import messages
 
 
 def animal_list(request):
@@ -35,9 +36,10 @@ def animal_detail(request, id_animal):
             nouveau_lieu.save()
             animal.etat = lieux_etats[nouveau_lieu.id_equip]
             animal.save()
+            messages.success(request, f"{animal.id_animal} a été déplacé")
             return redirect('animal_detail', id_animal=id_animal)
         else:
-            message = "Impossible ! Action interdite"
+            messages.error(request, "Action impossible")
     form = MoveForm()
     lieu = get_object_or_404(Equipement, id_equip=animal.lieu.id_equip)
 
@@ -45,5 +47,4 @@ def animal_detail(request, id_animal):
                   'animalerie/animal_detail.html',
                   {'animal': animal,
                    'lieu': lieu,
-                   'form': form,
-                   'message': message})
+                   'form': form,})

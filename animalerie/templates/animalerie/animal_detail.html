@@ -15,19 +15,15 @@
     <p>
         <form method="POST" class="post-form">{% csrf_token %}
             <b>Changer : </b>{{ form.as_ul }}
-            <button type="submit" class="btn btn-outline-light">OK</button>
-            <a href="{% url 'animal_list' %}">Back</a>
+            <button type="submit" class="bouton">OK</button>
+            <a href="{% url 'animal_list' %}" class="bouton">Back</a>
         </form>
     </p>
 </div>
-{% if message != ''%}
-    <div class="alert alert-danger" role="alert">
-        {{message}}
-    </div>
+{% if messages %}
+    {% for message in messages %}
+        <div class="{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
 {% endif %}
-{% if message == 'OK'%}
-    <div class="alert alert-success" role="alert">
-        Modifications effectuées
-    </div>
-{% endif %}
+
 {% endblock %}

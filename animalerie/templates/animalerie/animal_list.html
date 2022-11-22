@@ -8,7 +8,7 @@
     {% for animal in animaux %}
         <div class="col-md-4 col-sm-6">
             <div class="case">
-                <p><img src="{% static animal.photo %}"></p>
+                <p><a href="{% url 'animal_detail' id_animal=animal.id_animal %}"><img src="{% static animal.photo %}"></a></p>
                 <p><a href="{% url 'animal_detail' id_animal=animal.id_animal %}">{{ animal.id_animal }}</a></p>
                 <p>{{ animal.etat }}</p>
                 <p>{{ animal.lieu }}</p>

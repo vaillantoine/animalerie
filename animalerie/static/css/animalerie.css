@@ -6,11 +6,10 @@ body {
 }
 
 .case {
-    background-color: #222222;
+    background-color: #111111;
     padding: 15px ;
     border-radius: 5px;
-    margin: 15px;
-    height: 200px;
+    margin: 25px;
 }
 
 a {
@@ -19,4 +18,31 @@ a {
 
 .page-header {
     text-align: center;
+}
+
+.error {
+    color: red;
+    font-size: large;
+    text-align: center;
+}
+
+.success {
+    color: limegreen;
+    text-align: center;
+    font-size: large;
+}
+
+img {
+    height: 200px;
+}
+
+.post-form {
+    color: grey;
+}
+
+.bouton {
+    color: white;
+    border-radius: 5px;
+    background-color: #222222;
+    padding: 10px;
 }
