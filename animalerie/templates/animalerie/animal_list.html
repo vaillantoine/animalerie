@@ -4,17 +4,20 @@
     <div class="page-header">
         <h1><a href="/">Bienvenue à l'animalerie</a></h1>
     </div>
+    <div class="row">
     {% for animal in animaux %}
-        <div class="row"><p>
-            <div class="col-md-6">
-                <a href="{% url 'animal_detail' id_animal=animal.id_animal %}">{{ animal.id_animal }}</a>
+        <div class="col-md-4 col-sm-6">
+            <div class="case">
+                <p>
+                    {% with 'img/'|add:animal.id_animal|add:'.png' as pathimage %}
+                    <img src="{% static pathimage %}">
+                    {% endwith %}
+                </p>
+                <p><a href="{% url 'animal_detail' id_animal=animal.id_animal %}">{{ animal.id_animal }}</a></p>
+                <p>{{ animal.etat }}</p>
+                <p>{{ animal.lieu }}</p>
             </div>
-            <div class="col-md-3">
-                {{ animal.etat }}
-            </div>
-            <div class="col-md-3">
-                {{ animal.lieu }}
-            </div>
-        </p></div>
+        </div>
     {% endfor %}
+    </div>
 {% endblock %}
